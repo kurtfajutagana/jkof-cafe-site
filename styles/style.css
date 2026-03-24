@@ -241,22 +241,97 @@
     }
 
     /* Responsive */
+    @media (max-width: 1024px) {
+        nav {
+            padding: 20px 30px;
+        }
+        .grid-2 {
+            gap: 30px;
+        }
+    }
+
     @media (max-width: 768px) {
         nav {
-            padding: 20px;
+            padding: 15px 20px;
             flex-direction: column;
             gap: 15px;
         }
 
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         .nav-links a {
-            margin: 0 10px;
+            margin: 5px 12px;
+            font-size: 13px;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 30px;
         }
 
         section {
             padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .grid-3, .grid-2 {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .download-btn {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+
+        table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    }
+
+    @media (max-width: 480px) {
+        nav {
+            padding: 10px 15px;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 45px;
+        }
+
+        .nav-links a {
+            margin: 5px 8px;
+            font-size: 12px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            padding: 30px 20px;
+        }
+
+        footer {
+            padding: 40px 20px;
         }
     }
