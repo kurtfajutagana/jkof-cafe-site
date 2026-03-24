@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKOF Internet Cafe - Brochure</title>
+    <link rel="icon" href="logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-top: 100px;
+        }
+
+        .brochure-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .brochure-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 40px;
+            background-color: var(--neon-purple);
+            color: #fff;
+            text-decoration: none;
+            font-family: var(--font-header);
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(176, 38, 255, 0.4);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .download-btn:hover {
+            background-color: #fff;
+            color: var(--neon-purple);
+            box-shadow: 0 0 30px rgba(176, 38, 255, 0.8);
+            transform: translateY(-5px);
+        }
+
+        .download-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="logo.jpg" alt="JKOF Internet Cafe" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a href="about.html">About</a>
+            <a href="arena.html">Esports</a>
+            <a href="hub.html">Creator Hub</a>
+            <a href="rates.html">Rates</a>
+            <a href="brochure.html" style="color: var(--neon-purple);">Brochure</a>
+        </div>
+    </nav>
+
+    <section id="brochure" class="fade-in brochure-container">
+        <h2 class="section-title">Official Brochure</h2>
+
+        <p style="margin-bottom: 40px; color: #a0a0a0; font-size: 1.1rem;">
+            Explore everything JKOF Internet Cafe has to offer. View our complete facilities, rates, and amenities in
+            our official brochure.
+        </p>
+
+        <a href="brochure.pdf" download="JKOF_Cafe_Brochure.pdf" class="download-btn fade-in">
+            <svg class="download-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+            </svg>
+            Download Brochure PDF
+        </a>
+
+        <!-- Display the images for online viewing -->
+        <div class="fade-in">
+            <img src="brochure-1.png" alt="Brochure Page 1" class="brochure-img">
+            <img src="brochure-2.png" alt="Brochure Page 2" class="brochure-img">
+        </div>
+    </section>
+
+    <footer>
+        <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+            <a href="index.html" class="logo">
+                <img src="logo.jpg" alt="JKOF Internet Cafe" class="logo-img" style="height: 100px;">
+            </a>
+        </div>
+        <div class="footer-info">
+            <h3 style="color: #fff; margin-bottom: 15px;">Visit us</h3>
+            <p>123 Tech Hub Avenue, Pasig City</p>
+            <p>+123-456-7890</p>
+            <p>@JKOFCafe</p>
+            <p>hello@jkofcafe.com</p>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>
