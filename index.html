@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKOF Internet Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --bg-dark: #0b0c10;
+            --bg-panel: #131422;
+            --text-light: #e0e0e0;
+            --neon-cyan: #00f0ff;
+            --neon-purple: #b026ff;
+            --font-main: 'Inter', sans-serif;
+            --font-header: 'Orbitron', sans-serif;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-header);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(11, 12, 16, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1a1b30 0%, var(--bg-dark) 70%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            color: #a0a0a0;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: var(--neon-cyan);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-family: var(--font-header);
+            font-weight: 700;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
+        }
+
+        /* Section Layouts */
+        section {
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #fff;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-panel);
+            padding: 40px 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+        }
+
+        .card h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .card.purple-border:hover {
+            border-color: var(--neon-purple);
+        }
+
+        .card.purple-border h3 {
+            color: var(--neon-purple);
+        }
+
+        /* Rates Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-panel);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th {
+            color: var(--neon-cyan);
+            font-family: var(--font-header);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .promo-banner {
+            background: linear-gradient(90deg, rgba(176, 38, 255, 0.2), rgba(0, 240, 255, 0.2));
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 240, 255, 0.3);
+        }
+
+        .promo-banner h4 {
+            color: var(--neon-purple);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-panel);
+            padding: 60px 50px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-info p {
+            margin-bottom: 10px;
+            color: #a0a0a0;
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 20px; flex-direction: column; gap: 15px; }
+            .nav-links a { margin: 0 10px; }
+            .hero h1 { font-size: 2.5rem; }
+            section { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">JKOF INTERNET CAFE</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#arena">Esports</a>
+            <a href="#hub">Creator Hub</a>
+            <a href="#rates">Rates</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Level Up Your <br><span>Connection</span></h1>
+        <p>Your ultimate digital hub. Whether you are climbing the competitive ranks or compiling your latest full-stack project, we have the hardware you need.</p>
+        <a href="#rates" class="btn">View Our Rates</a>
+    </header>
+
+    <section id="about" class="fade-in">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>ZERO-LATENCY GAMING</h3>
+                <p>Custom-built rigs designed for high FPS so you can rank up in fast-paced competitive shooters without dropping frames.</p>
+            </div>
+            <div class="card purple-border">
+                <h3>PREMIUM PERIPHERALS</h3>
+                <p>Every station is equipped with tactile mechanical keyboards for crisp, satisfying inputs and ultimate precision.</p>
+            </div>
+            <div class="card">
+                <h3>DEV & STUDY ZONES</h3>
+                <p>Need to focus? Step into our quiet workspace optimized for compiling code, heavy 3D rendering, or finishing group projects in peace.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="arena" class="fade-in">
+        <div class="grid-2">
+            <div>
+                <h2 class="section-title" style="text-align: left;">Esports Arena</h2>
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3>HIGH-FPS RIGS</h3>
+                    <p>Systems fully optimized to push maximum frames in competitive titles like Valorant.</p>
+                </div>
+                <div class="card">
+                    <h3>TACTILE PERIPHERALS</h3>
+                    <p>Every station features mechanical keyboards. Choose between Brown, Red, or Blue switches for your perfect setup.</p>
+                </div>
+            </div>
+            <div id="hub">
+                <h2 class="section-title" style="text-align: left; color: var(--neon-purple);">DEV & CREATOR HUB</h2>
+                <div class="card purple-border" style="margin-bottom: 20px;">
+                    <h3>DESIGN READY</h3>
+                    <p>High-color-accuracy monitors pre-loaded with Figma and Adobe Creative Suite.</p>
+                </div>
+                <div class="card purple-border">
+                    <h3>MODERN WORKSPACES</h3>
+                    <p>Smooth, bottleneck-free environments perfect for compiling React, Tauri, or Tailwind CSS projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-in" style="background: rgba(0, 240, 255, 0.05); border-radius: 8px; text-align: center; padding: 60px 20px;">
+        <h2 style="color: var(--neon-cyan); margin-bottom: 15px;">SECURE NETWORK</h2>
+        <h3 style="color: #fff; margin-bottom: 15px;">DATA INTEGRITY</h3>
+        <p style="max-width: 600px; margin: 0 auto;">Enterprise-grade network security ensuring your personal accounts and project files stay confidential and safe while you browse.</p>
+    </section>
+
+    <section id="rates" class="fade-in">
+        <h2 class="section-title">Rates & Packages</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pass</th>
+                    <th>Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Regular PC</td>
+                    <td>P30/hr</td>
+                </tr>
+                <tr>
+                    <td>VIP Rig</td>
+                    <td>P50/hr</td>
+                </tr>
+                <tr>
+                    <td>Day Pass</td>
+                    <td>P250</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="promo-banner">
+            <h4>STUDENT PROMO</h4>
+            <p>Show your valid School ID for 10% off your hourly rate!</p>
+        </div>
+    </section>
+
+    <footer>
+        <h2 class="logo" style="margin-bottom: 30px;">JKOF</h2>
+        <div class="footer-info">
+            <h3 style="color: #fff; margin-bottom: 15px;">Visit us</h3>
+            <p>123 Tech Hub Avenue, Pasig City</p>
+            <p>+123-456-7890</p>
+            <p>@JKOFCafe</p>
+            <p>hello@jkofcafe.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for scroll fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
