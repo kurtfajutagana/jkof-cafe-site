@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JKOF Internet Cafe - Home</title>
+    <title>JKOF Internet Cafe - Rates</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-top: 100px;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,19 +25,40 @@
             <a href="about.html">About</a>
             <a href="arena.html">Esports</a>
             <a href="hub.html">Creator Hub</a>
-            <a href="rates.html">Rates</a>
+            <a href="rates.html" style="color: var(--neon-cyan);">Rates</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>Level Up Your <br><span>Connection</span></h1>
-        <p>Your ultimate digital hub. Whether you are climbing the competitive ranks or compiling your latest full-stack
-            project, we have the hardware you need.</p>
-        <a href="rates.html" class="btn">View Our Rates</a>
-    </header>
-
-    <section class="fade-in" style="padding-top: 0;">
-        <img src="home-hero.png" alt="JKOF Internet Cafe Exterior" style="width: 100%; border-radius: 12px; box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); object-fit: cover; max-height: 600px; display: block; margin: 0 auto;">
+    <section id="rates" class="fade-in">
+        <h2 class="section-title">Rates & Packages</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <table style="margin-bottom: 40px;">
+                <thead>
+                    <tr>
+                        <th>Pass</th>
+                        <th>Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Regular PC</td>
+                        <td>P30/hr</td>
+                    </tr>
+                    <tr>
+                        <td>VIP Rig</td>
+                        <td>P50/hr</td>
+                    </tr>
+                    <tr>
+                        <td>Day Pass</td>
+                        <td>P250</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="promo-banner" style="border-radius: 8px;">
+                <h4>STUDENT PROMO</h4>
+                <p>Show your valid School ID for 10% off your hourly rate!</p>
+            </div>
+        </div>
     </section>
 
     <footer>
